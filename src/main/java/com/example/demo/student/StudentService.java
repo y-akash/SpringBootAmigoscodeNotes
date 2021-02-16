@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
-// to use @Autowired 
+// to use @Autowired
 @Service
 public class StudentService {
     public List<Student> getStudent(){
