@@ -1,8 +1,25 @@
 package com.example.demo.student;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+// To map Student class to DataBase
+@Entity // This one for Hibernate
+@Table  // This one for table in our database
 public class Student {
+
+    @Id
+//    To Generate Sequence
+    @SequenceGenerator(
+            name = "student_sequence",
+            sequenceName = "student_sequence",
+            allocationSize = 1
+    )
+
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_sequence"
+    )
     private Long id;
     private String name;
     private String email;
