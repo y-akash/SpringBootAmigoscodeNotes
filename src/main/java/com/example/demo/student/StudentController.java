@@ -1,5 +1,6 @@
 package com.example.demo.student;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,14 @@ public class StudentController {
 
     private final StudentService studentService;
 
+    // here we are taking the StudentService instance but we are not creating anywhere
+    // so we will get an error
+    // instead of this we can do this.studentService = new StudentService();
+    // but we can do another better approach 
+    // if we annote this method with @Autowired it will instatiate and injected into the consturctor underhood
+    // for that we have to also tell the class which are instntiating so go to class StudentService annotate it with @Service
+    // we can slso annotate with @Component but it is good to annotate with @Service
+    @Autowired
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
