@@ -37,4 +37,13 @@ public class StudentController {
     public void deleteStudent(@PathVariable("studentId") Long studentId) {
         studentService.deleteStudent(studentId);
     }
+
+    @PutMapping(path = "{studentId}")   // api/v1/student/1?name="akash"&email="ay@gmail.com" requested parmaeters are for such type of url
+    public void updateStudent(
+            @PathVariable("studentId") Long studentId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String email){
+        System.out.println("***********************"+name+"*********************"+email);
+        studentService.updateStudent(studentId, name, email);
+    }
 }
