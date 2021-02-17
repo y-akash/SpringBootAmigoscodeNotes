@@ -32,4 +32,9 @@ public class StudentController {
     public void registerNewStudent(@RequestBody Student student) {  // we take a @RequestBody data and map to Student class
         studentService.addNewStudent(student);
     }
+
+    @DeleteMapping(path = "{studentId}")    //it is similar to parameter api/v1/student/1 so that 1 will come inside studentId
+    public void deleteStudent(@PathVariable("studentId") Long studentId) {
+        studentService.deleteStudent(studentId);
+    }
 }
