@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//@RestController annotation makes this class to serve rest endpoints
 @RestController
 @RequestMapping(path = "api/v1/student")    // if we got to this url than we get the student details
 public class StudentController {
